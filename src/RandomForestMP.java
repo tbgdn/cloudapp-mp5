@@ -32,8 +32,7 @@ public final class RandomForestMP {
 		@Override
 		public LabeledPoint call(LabeledPoint input) throws Exception {
 			Vectors.dense(input.label(), input.features().toArray());
-			return new LabeledPoint(model.predict(input.features()),
-							Vectors.dense(input.label(), input.features().toArray()));
+			return new LabeledPoint(model.predict(input.features()), input.features());
 		}
 	}
 
